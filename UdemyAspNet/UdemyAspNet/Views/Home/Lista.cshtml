@@ -1,0 +1,32 @@
+﻿@model UdemyAspNet.Models.Pessoa
+
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h2>Lista</h2>
+<div>
+    <b>@Html.LabelFor(x => x.PessoaId) </b>
+
+</div>
+<div>
+   @Model.PessoaId
+</div>
+<div>
+    <b>Pessoa Nome</b>
+
+</div>
+<div>
+    @Model.PessoaNome
+</div>
+<div>
+    <b>Tipo</b>
+
+</div>
+<div>
+   @Model.Tipo
+</div>
+
+<div>
+    @Html.ActionLink("Voltar","Index","Home")
+</div>

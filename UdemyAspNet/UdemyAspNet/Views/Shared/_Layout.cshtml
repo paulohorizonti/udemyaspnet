@@ -4,13 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    <title>@ViewBag.Title - ASP.NET MVC</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5">
         <div class="container">
             <a class="navbar-brand" href="@Url.Action("Index", "Home")">UdemyEstudos</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,16 +21,20 @@
                     <a class="nav-link active" href="@Url.Action("Index", "Home")">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-link" href="@Url.Action("About", "Home")">Sobre</a>
                     <a class="nav-link" href="@Url.Action("Contact", "Home")">Contato</a>
-             
+
                 </div>
-            
+
             </div>
-      </div> <!--fim da div do container-->
+        </div> <!--fim da div do container-->
     </nav>
+    <!--Alteração do curso-->
 
    
 
-    <div class="container body-content">
+    <div class="container body-content mt-5 p-4">
+        <a href="https://www.google.com" target="_blank">Ir para google</a><br />
+        @Html.ActionLink("Inicial", "Index", "Home")</br>
+        @Html.ActionLink("Contatos", "Contatos", "Home")
         @RenderBody()
         <hr />
         <footer>

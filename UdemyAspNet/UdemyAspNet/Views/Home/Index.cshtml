@@ -1,31 +1,62 @@
-﻿@{
+﻿@model UdemyAspNet.Models.Pessoa
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<h2>Curso asp mvc</h2>
+<br />
+<hr>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+
+<br>
+<hr>
+<h4>Passando via ViewData</h4>
+<p>@ViewData["PessoaID"]</p>
+<p>@ViewData["PessoaNome"]</p>
+<p>@ViewData["Tipo"]</p>
+
+<br>
+<hr>
+<h4>Passando via ViewBag</h4>
+<p>@ViewBag.id</p>
+<p>@ViewBag.nome</p>
+<p>@ViewBag.tipo</p>
+
+<br>
+<hr>
+<h4>Passando via View tipada</h4>
+<!--metodo post para enviar-->
+@using (Html.BeginForm("Lista", "Home", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Informações de pessoas</legend>
+
+    </fieldset>
+    <div>
+        @Html.LabelFor(x => x.PessoaId)
+
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div>
+        @Html.EditorFor(x => x.PessoaId)
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div>
+        <label for="PessoaNome">Nome</label>
+
     </div>
-</div>
+    <div>
+        <input type="text" value="@Model.PessoaNome" name="PessoaNome" />
+    </div>
+    <div>
+        <label for="PessoaTipo">Tipo</label>
+
+    </div>
+    <div>
+        <input type="text" value="@Model.Tipo" name="Tipo" />
+    </div>
+    <div>
+        <input type="submit" value="Enviar">
+    </div>
+}
+
+
