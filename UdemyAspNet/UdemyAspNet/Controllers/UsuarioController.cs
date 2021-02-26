@@ -18,6 +18,16 @@ namespace UdemyAspNet.Controllers
         [HttpPost]
         public ActionResult Usuario(Usuarios usuario)
         {
+            /*
+            if (string.IsNullOrEmpty(usuario.Nome))
+            {
+                ModelState.AddModelError("Nome", "O campo é obrigatório"); //mostra no campo
+            }
+            */
+            if(usuario.Senha != usuario.ConfirmarSenha)
+            {
+                ModelState.AddModelError("", "Senhas são diferentes"); //mostra no topo da página
+            }
             if (ModelState.IsValid)
             {
                 return View("Resultado", usuario);
